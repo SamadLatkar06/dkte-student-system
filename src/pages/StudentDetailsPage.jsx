@@ -76,6 +76,7 @@ function StudentDetailsPage() {
       {error ? <p className="error-text">{error}</p> : null}
       {student && !isVerified ? (
         <section className="card narrow">
+          <h4>Verification Required</h4>
           <h3>Enter Mother's Name</h3>
           <form onSubmit={handleMotherNameVerification} className="stack-form">
             <input
