@@ -1,0 +1,9 @@
+{
+  "appId": "com.dkte.student",
+  "appName": "DKTE Student System",
+  "webDir": "dist",
+  "server": {
+    "url": "dkte-student-system.vercel.app",
+    "cleartext": true
+  }
+}

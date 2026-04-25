@@ -1,9 +1,11 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/useAuth'
 
 function Layout({ children }) {
   const location = useLocation()
+  const navigate = useNavigate()
   const { isAdmin } = useAuth()
+  const isHomePage = location.pathname === '/'
 
   return (
     <div className="app-shell">
@@ -13,7 +15,7 @@ function Layout({ children }) {
           <p>Textile and Engineering Institute, Ichalkaranji</p>
         </div>
         <nav>
-          <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+          <Link to="/app" className={location.pathname === '/app' ? 'active' : ''}>
             Scan QR
           </Link>
           {isAdmin ? (
@@ -33,6 +35,16 @@ function Layout({ children }) {
           )}
         </nav>
       </header>
+      {!isHomePage ? (
+        <section className="top-actions">
+          <button type="button" className="icon-btn" onClick={() => navigate(-1)} aria-label="Go back">
+            ← Back
+          </button>
+          <button type="button" className="icon-btn" onClick={() => navigate('/about')} aria-label="About">
+            ℹ️
+          </button>
+        </section>
+      ) : null}
       <main className="main-content">{children}</main>
     </div>
   )

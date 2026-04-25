@@ -11,6 +11,7 @@ import {
 const initialStudent = {
   prn: '',
   name: '',
+  mother_name: '',
   branch: '',
   year: '',
   cgpa: '',
@@ -169,6 +170,12 @@ function AdminDashboardPage() {
             required
           />
           <input
+            placeholder="Mother Name"
+            value={studentForm.mother_name}
+            onChange={(event) => updateStudentField('mother_name', event.target.value)}
+            required
+          />
+          <input
             placeholder="Year"
             value={studentForm.year}
             onChange={(event) => updateStudentField('year', event.target.value)}
@@ -256,6 +263,7 @@ function AdminDashboardPage() {
               <tr>
                 <th>PRN</th>
                 <th>Name</th>
+                <th>Mother Name</th>
                 <th>Branch</th>
                 <th>Year</th>
                 <th>CGPA</th>
@@ -266,6 +274,7 @@ function AdminDashboardPage() {
                 <tr key={student.prn}>
                   <td>{student.prn}</td>
                   <td>{student.name}</td>
+                  <td>{student.mother_name}</td>
                   <td>{student.branch}</td>
                   <td>{student.year}</td>
                   <td>{student.cgpa}</td>

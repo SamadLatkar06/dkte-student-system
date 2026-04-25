@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import DocumentList from '../components/DocumentList'
 import LoadingSpinner from '../components/LoadingSpinner'
 import StudentCard from '../components/StudentCard'
@@ -13,6 +13,8 @@ function StudentDetailsPage() {
   const [documents, setDocuments] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [motherNameInput, setMotherNameInput] = useState('')
+  const [isVerified, setIsVerified] = useState(false)
 
   useEffect(() => {
     async function fetchStudentAndDocuments() {
@@ -32,6 +34,8 @@ function StudentDetailsPage() {
         if (!studentResult) {
           setError('Student not found for this PRN.')
         } else {
+          setIsVerified(false)
+          setMotherNameInput('')
           setStudent(studentResult)
           setDocuments(docsResult)
         }
@@ -47,14 +51,45 @@ function StudentDetailsPage() {
 
   if (loading) return <LoadingSpinner label="Loading student details..." />
 
+  const handleMotherNameVerification = (event) => {
+    event.preventDefault()
+    const entered = motherNameInput.trim().toLowerCase()
+    const expected = (student?.mother_name ?? '').trim().toLowerCase()
+
+    if (!expected) {
+      setError('Mother name is not configured for this student.')
+      return
+    }
+
+    if (entered === expected) {
+      setError('')
+      setIsVerified(true)
+      return
+    }
+
+    setIsVerified(false)
+    alert("Incorrect Mother's Name")
+  }
+
   return (
     <div className="stacked-page">
-      <Link to="/" className="link-btn">
-        Back to Scan
-      </Link>
       {error ? <p className="error-text">{error}</p> : null}
-      {student ? <StudentCard student={student} /> : null}
-      {!error ? <DocumentList documents={documents} /> : null}
+      {student && !isVerified ? (
+        <section className="card narrow">
+          <h3>Enter Mother's Name</h3>
+          <form onSubmit={handleMotherNameVerification} className="stack-form">
+            <input
+              placeholder="Mother's Name"
+              value={motherNameInput}
+              onChange={(event) => setMotherNameInput(event.target.value)}
+              required
+            />
+            <button type="submit">Verify</button>
+          </form>
+        </section>
+      ) : null}
+      {student && isVerified ? <StudentCard student={student} /> : null}
+      {student && isVerified && !error ? <DocumentList documents={documents} /> : null}
     </div>
   )
 }

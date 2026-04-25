@@ -3,11 +3,14 @@
 create table if not exists public.students (
   prn text primary key,
   name text not null,
+  mother_name text not null,
   branch text not null,
   year text not null,
   cgpa numeric(4,2) not null check (cgpa >= 0 and cgpa <= 10),
   photo_url text
 );
+
+alter table public.students add column if not exists mother_name text;
 
 create table if not exists public.documents (
   id uuid primary key default gen_random_uuid(),

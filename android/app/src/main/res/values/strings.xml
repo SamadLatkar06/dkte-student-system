@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DKTE Student System</string>
+    <string name="title_activity_main">DKTE Student System</string>
+    <string name="package_name">com.dkte.student</string>
+    <string name="custom_url_scheme">com.dkte.student</string>
+</resources>

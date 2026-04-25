@@ -3,6 +3,8 @@ import Layout from './components/Layout'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminDashboardPage from './pages/AdminDashboardPage'
 import AdminLoginPage from './pages/AdminLoginPage'
+import AppPage from './pages/AppPage'
+import AboutPage from './pages/AboutPage'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import StudentDetailsPage from './pages/StudentDetailsPage'
@@ -12,6 +14,8 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/app" element={<AppPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/student/:prn" element={<StudentDetailsPage />} />
         <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route
