@@ -64,7 +64,7 @@ function AdminLoginPage() {
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="Strong password"
+          placeholder="Password"
         />
 
         <button type="submit" disabled={submitting}>
