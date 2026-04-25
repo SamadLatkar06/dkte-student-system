@@ -18,6 +18,9 @@ function Layout({ children }) {
           <Link to="/app" className={location.pathname === '/app' ? 'active' : ''}>
             Scan QR
           </Link>
+          <Link to="/manual-search" className={location.pathname === '/manual-search' ? 'active' : ''}>
+            Manual Search
+          </Link>
           {isAdmin ? (
             <Link
               to="/admin/dashboard"

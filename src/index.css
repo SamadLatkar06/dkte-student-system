@@ -131,6 +131,20 @@ p {
   padding: 2rem 1.5rem;
 }
 
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 0.32rem 0.72rem;
+}
+
 .entry-card h2 {
   font-size: clamp(1.6rem, 3vw, 2.15rem);
   margin-bottom: 0.75rem;
@@ -278,6 +292,17 @@ button:disabled {
   background: #f8fbff;
 }
 
+.scanner-side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.manual-search-page {
+  margin-top: 0.5rem;
+}
+
 .student-card {
   display: flex;
   align-items: center;
@@ -303,6 +328,38 @@ button:disabled {
 
 .student-info p {
   margin: 0.32rem 0;
+}
+
+.cgpa-widget {
+  margin-top: 0.7rem;
+  background: #f3f8ff;
+  border: 1px solid #d7e5fb;
+  border-radius: 12px;
+  padding: 0.65rem;
+}
+
+.cgpa-meter {
+  height: 10px;
+  width: 100%;
+  border-radius: 999px;
+  background: #dbeafe;
+  overflow: hidden;
+}
+
+.cgpa-meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.25);
+}
+
+.cgpa-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.42rem;
+  font-size: 0.9rem;
+  color: #1f3760;
 }
 
 .docs-list {
