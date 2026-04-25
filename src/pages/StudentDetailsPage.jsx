@@ -79,10 +79,11 @@ function StudentDetailsPage() {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start', // 🔥 fixed (was center)
     background: '#f9fafb',
     fontFamily: 'system-ui, sans-serif',
-    padding: '20px'
+    padding: '20px',
+    paddingTop: '40px' // 👈 controls how high card appears
   }}
 >
   {error ? (
@@ -105,16 +106,16 @@ function StudentDetailsPage() {
         width: '100%',
         maxWidth: '380px',
         background: '#ffffff',
-        padding: '28px',
+        padding: '24px',
         borderRadius: '10px',
-        boxShadow: '0 8px 20px rgba(0,0,0,0.08)'
+        boxShadow: '0 6px 18px rgba(0,0,0,0.08)'
       }}
     >
       <h2 style={{ marginBottom: '6px', color: '#111827' }}>
         Verification Required
       </h2>
 
-      <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '18px' }}>
+      <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '16px' }}>
         Please enter mother's name to continue
       </p>
 
@@ -153,7 +154,7 @@ function StudentDetailsPage() {
   ) : null}
 
   {student && isVerified ? (
-    <div style={{ width: '100%', maxWidth: '600px' }}>
+    <div style={{ width: '100%', maxWidth: '600px', marginTop: '20px' }}>
       <StudentCard student={student} />
     </div>
   ) : null}
