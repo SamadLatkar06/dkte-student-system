@@ -72,26 +72,98 @@ function StudentDetailsPage() {
   }
 
   return (
-    <div className="stacked-page">
-      {error ? <p className="error-text">{error}</p> : null}
-      {student && !isVerified ? (
-        <section className="card narrow">
-          <h2>   Verification Required</h2>
-          <h3>Enter Mother's Name</h3>
-          <form onSubmit={handleMotherNameVerification} className="stack-form">
-            <input
-              placeholder="Mother's Name"
-              value={motherNameInput}
-              onChange={(event) => setMotherNameInput(event.target.value)}
-              required
-            />
-            <button type="submit">Verify</button>
-          </form>
-        </section>
-      ) : null}
-      {student && isVerified ? <StudentCard student={student} /> : null}
-      {student && isVerified && !error ? <DocumentList documents={documents} /> : null}
+    <div
+  className="stacked-page"
+  style={{
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f9fafb',
+    fontFamily: 'system-ui, sans-serif',
+    padding: '20px'
+  }}
+>
+  {error ? (
+    <p
+      style={{
+        color: '#b91c1c',
+        background: '#fee2e2',
+        padding: '10px 16px',
+        borderRadius: '6px',
+        marginBottom: '16px'
+      }}
+    >
+      {error}
+    </p>
+  ) : null}
+
+  {student && !isVerified ? (
+    <section
+      style={{
+        width: '100%',
+        maxWidth: '380px',
+        background: '#ffffff',
+        padding: '28px',
+        borderRadius: '10px',
+        boxShadow: '0 8px 20px rgba(0,0,0,0.08)'
+      }}
+    >
+      <h2 style={{ marginBottom: '6px', color: '#111827' }}>
+        Verification Required
+      </h2>
+
+      <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '18px' }}>
+        Please enter mother's name to continue
+      </p>
+
+      <form
+        onSubmit={handleMotherNameVerification}
+        style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
+      >
+        <input
+          placeholder="Mother's Name"
+          value={motherNameInput}
+          onChange={(event) => setMotherNameInput(event.target.value)}
+          required
+          style={{
+            padding: '10px',
+            borderRadius: '6px',
+            border: '1px solid #d1d5db',
+            outline: 'none'
+          }}
+        />
+
+        <button
+          type="submit"
+          style={{
+            padding: '10px',
+            background: '#111827',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer'
+          }}
+        >
+          Verify
+        </button>
+      </form>
+    </section>
+  ) : null}
+
+  {student && isVerified ? (
+    <div style={{ width: '100%', maxWidth: '600px' }}>
+      <StudentCard student={student} />
     </div>
+  ) : null}
+
+  {student && isVerified && !error ? (
+    <div style={{ width: '100%', maxWidth: '600px', marginTop: '16px' }}>
+      <DocumentList documents={documents} />
+    </div>
+  ) : null}
+</div>
   )
 }
 
