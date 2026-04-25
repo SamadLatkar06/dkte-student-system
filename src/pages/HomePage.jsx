@@ -13,28 +13,42 @@ function HomePage() {
     <div
       style={{
         height: '100vh',
+        backgroundImage: "url('/rajwada.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'relative',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#f8fafc',
         fontFamily: 'system-ui, sans-serif'
       }}
     >
+      {/* Overlay for readability */}
       <div
         style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(0,0,0,0.55)'
+        }}
+      />
+
+      {/* Main Card */}
+      <div
+        style={{
+          position: 'relative',
           width: '380px',
           padding: '32px',
-          borderRadius: '12px',
-          background: '#ffffff',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
+          borderRadius: '10px',
+          background: 'rgba(255,255,255,0.96)',
+          boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
         }}
       >
-        <h2 style={{ marginBottom: '10px', color: '#111827' }}>
+        <h2 style={{ marginBottom: '8px', color: '#111827' }}>
           DKTE Student Portal
         </h2>
 
-        <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '24px' }}>
-          Scan student QR codes and securely access academic records.
+        <p style={{ fontSize: '14px', color: '#4b5563', marginBottom: '24px' }}>
+          Scan QR codes and securely access student academic records.
         </p>
 
         <button
@@ -45,7 +59,7 @@ function HomePage() {
             background: '#111827',
             color: '#ffffff',
             border: 'none',
-            borderRadius: '8px',
+            borderRadius: '6px',
             fontWeight: '500',
             cursor: 'pointer'
           }}
