@@ -5,97 +5,55 @@ function HomePage() {
   const navigate = useNavigate()
 
   const handleStart = () => {
-    window.sessionStorage.setItem(START_FLAG_KEY, 'true')
+    sessionStorage.setItem(START_FLAG_KEY, 'true')
     navigate('/app')
   }
 
   return (
-    <section
+    <div
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, #4f46e5, #9333ea, #06b6d4)',
-        fontFamily: 'Poppins, sans-serif'
+        justifyContent: 'center',
+        background: '#f8fafc',
+        fontFamily: 'system-ui, sans-serif'
       }}
     >
       <div
         style={{
-          backdropFilter: 'blur(15px)',
-          background: 'rgba(255,255,255,0.1)',
-          padding: '40px',
-          borderRadius: '20px',
-          textAlign: 'center',
-          color: 'white',
-          width: '350px',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
-          animation: 'fadeIn 1s ease-in-out'
+          width: '380px',
+          padding: '32px',
+          borderRadius: '12px',
+          background: '#ffffff',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
         }}
       >
-        <span
-          style={{
-            display: 'inline-block',
-            background: 'rgba(255,255,255,0.2)',
-            padding: '6px 12px',
-            borderRadius: '999px',
-            fontSize: '12px',
-            marginBottom: '15px'
-          }}
-        >
-          🚀 DKTE Idea Lab 2026
-        </span>
+        <h2 style={{ marginBottom: '10px', color: '#111827' }}>
+          DKTE Student Portal
+        </h2>
 
-        <h1 style={{ fontSize: '26px', marginBottom: '10px' }}>
-          Student Access Portal
-        </h1>
-
-        <p style={{ fontSize: '14px', opacity: 0.9, marginBottom: '25px' }}>
-          Scan QR codes, verify student details securely, and access academic
-          records through a clean dashboard.
+        <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '24px' }}>
+          Scan student QR codes and securely access academic records.
         </p>
 
         <button
           onClick={handleStart}
           style={{
-            background: 'white',
-            color: '#4f46e5',
+            width: '100%',
+            padding: '12px',
+            background: '#111827',
+            color: '#ffffff',
             border: 'none',
-            padding: '12px 20px',
-            borderRadius: '999px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            transition: '0.3s'
-          }}
-          onMouseOver={e => {
-            e.target.style.transform = 'scale(1.05)'
-            e.target.style.background = '#f3f4f6'
-          }}
-          onMouseOut={e => {
-            e.target.style.transform = 'scale(1)'
-            e.target.style.background = 'white'
+            borderRadius: '8px',
+            fontWeight: '500',
+            cursor: 'pointer'
           }}
         >
-          Get Started →
+          Start
         </button>
       </div>
-
-      {/* Animation keyframes (inline workaround) */}
-      <style>
-        {`
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}
-      </style>
-    </section>
+    </div>
   )
 }
 
