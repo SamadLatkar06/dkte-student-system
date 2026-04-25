@@ -9,7 +9,7 @@ function AboutPage() {
         <strong>Project:</strong> Idea Lab Project 2026
       </p>
 
-      <h3>Developer and Sponsers:</h3>
+      <h3>Developer and Sponsors:</h3>
       <ol>
         <li>Samad Latkar</li>
         <li>Sohail Shaikh</li>
