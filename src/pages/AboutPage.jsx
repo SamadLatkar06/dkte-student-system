@@ -11,8 +11,10 @@ function AboutPage() {
 
       <h3>Developer and Sponsors:</h3>
       <ol>
+  
         <li>Samad Latkar</li>
-        <li>Sohail Shaikh</li>
+        <li>Mufij Bagwan</li>
+        <li>Sohel Shaikh</li>
         <li>Kunal Redekar</li>
         <li>Aditya Mahagade</li>
         <li>Parth Mane</li>
